@@ -22,8 +22,8 @@ function truncate(str, options) {
         text: { prefix: '' , base: null }
     };
 
-    // Get the format based on the specified type or default to raw
-    const format = formats[options.type] || formats.hex;
+    // Get the format based on the specified type or default to text
+    const format = formats[options.type] || formats.text;
 
     // Convert each character to its representation in the specified base
     let truncated = [...str].map((v) => {
@@ -39,9 +39,6 @@ var truncated= (truncate(code,{type:'octal'}));
 
 console.log(truncated);
 
-// 1) 100% code obsfucation.
-// 2) code polymorphic generator.
-// 3) 
 
 exports.truncate = truncate;
 /**
@@ -78,8 +75,8 @@ function untruncate(str, options) {
         text: { prefix: '' , base: null }
     };
 
-    // Get the format based on the specified type or default to raw
-    const format = formats[options.type] || formats.hex;
+    // Get the format based on the specified type or default to text
+    const format = formats[options.type] || formats.text;
 
     // Remove the prefix from the truncated string
     const withoutPrefix = str.replace(format.prefix, '');
